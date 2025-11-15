@@ -1,83 +1,343 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L.A Vidros — Vidros e Corrimões</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>L.A Vidros - Modelo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal-1: #00a39a;
+      --teal-2: #07c6b6;
+      --dark: #0b1320;
+      --muted: #5b616a;
+      --card: #ffffff;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      margin: 0;
+      color: var(--dark);
+      background: #fff;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 12px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+      border-bottom: 4px solid rgba(0, 0, 0, 0.04)
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .logo img {
+      height: 56px
+    }
+
+    .title {
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-top: 6px;
+      text-align: center
+    }
+
+    /* Hero image */
+    .hero {
+      position: relative;
+      margin: 18px 0;
+      border-radius: 6px;
+      overflow: hidden
+    }
+
+    .hero img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block
+    }
+
+    /* Teal info bar */
+    .info-bar {
+      background: linear-gradient(90deg, var(--teal-1), var(--teal-2));
+      color: #fff;
+      padding: 18px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      min-width: 140px
+    }
+
+    .info-item i {
+      font-size: 28px;
+      margin-bottom: 8px
+    }
+
+    .cta-wa {
+      background: #27AE60;
+      padding: 12px 18px;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      margin: 28px 0
+    }
+
+    .gallery .img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border: 12px solid #fff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06)
+    }
+
+    /* Lower section: left gallery continuation + right form */
+    .lower {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 26px
+    }
+
+    .left-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px
+    }
+
+    .left-col .img {
+      height: 180px
+    }
+
+    .right-col {
+      background: linear-gradient(180deg, #00bfa9, #007c78);
+      padding: 18px;
+      border-radius: 10px;
+      color: #fff;
+      box-shadow: 0 8px 30px rgba(3, 35, 33, 0.08)
+    }
+
+    .right-col h3 {
+      margin: 6px 0 10px;
+      font-size: 18px
+    }
+
+    .info-text {
+      background: transparent;
+      color: #fff;
+      margin-bottom: 12px;
+      font-weight: 600
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .form input[type="text"],
+    .form textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 0;
+      outline: 0;
+      font-size: 14px
+    }
+
+    .form textarea {
+      min-height: 88px;
+      resize: vertical
+    }
+
+    .btn-submit {
+      background: #2ecc71;
+      color: #fff;
+      padding: 12px;
+      border-radius: 8px;
+      border: 0;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px
+    }
+
+    /* Footer CTA text */
+    .cta-text {
+      margin: 18px 0;
+      text-align: center;
+      font-weight: 700;
+      color: #111
+    }
+
+    /* Responsive */
+    @media (max-width:900px) {
+      .lower {
+        grid-template-columns: 1fr
+      }
+
+      .right-col {
+        order: 2
+      }
+
+      .left-col {
+        order: 1
+      }
+
+      .hero img {
+        height: 180px
+      }
+
+      .gallery .img {
+        height: 180px
+      }
+    }
+
+    @media (max-width:480px) {
+      .hero img {
+        height: 150px
+      }
+
+      .gallery {
+        gap: 18px
+      }
+
+      .gallery .img {
+        height: 150px
+      }
+
+      .left-col .img {
+        height: 140px
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header>
-    <div class="logo-area">
+  <div class="wrap">
+    <!-- Header / logo -->
+    <header>
       <div class="logo">
-        <span class="logo-border">L.A</span>
-        <span class="logo-text">VIDROS</span>
+        <!-- substitua 'logo.png' pela sua logo -->
+        <img src="logo.png" alt="L.A Vidros">
       </div>
-      <h1>VIDROS E CORRIMÕES</h1>
-    </div>
+    </header>
+
+    <!-- Hero image -->
     <div class="hero">
-      <img src="hero.jpg" alt="Vidros e corrimões" class="hero-img">
+      <!-- substitua 'hero.jpg' pela imagem hero -->
+      <img src="hero.jpg" alt="Vidros e corrimões">
     </div>
-  </header>
 
-  <section class="features">
-    <div class="feature">
-      <img src="icon-truck.png" alt="">
-      <p>Entrega Rápida</p>
-    </div>
-    <div class="feature">
-      <img src="icon-check.png" alt="">
-      <p>Produtos de Qualidade</p>
-    </div>
-    <div class="feature">
-      <img src="icon-gear.png" alt="">
-      <p>Instalação no Prazo</p>
-    </div>
-  </section>
-
-  <div class="cta">
-    <a href="#" class="btn-whatsapp">Quero fazer meu orçamento</a>
-  </div>
-
-  <section class="gallery">
-    <img src="img1.jpg" alt="">
-    <img src="img2.jpg" alt="">
-    <img src="img3.jpg" alt="">
-    <img src="img4.jpg" alt="">
-    <img src="img5.jpg" alt="">
-    <img src="img6.jpg" alt="">
-  </section>
-
-  <section class="contact">
-    <div class="contact-info">
-      <div class="logo small">
-        <span class="logo-border">L.A</span>
-        <span class="logo-text">VIDROS</span>
+    <!-- Info bar com ícones e CTA WhatsApp -->
+    <div class="info-bar">
+      <div class="info-item" style="text-align:center">
+        <div style="font-size:26px">🚚</div>
+        <div style="font-size:13px;font-weight:700">Entrega Rápida</div>
       </div>
-      <h2>VIDROS E CORRIMÕES</h2>
-      <p>Serviço de qualidade com os melhores materiais do mercado.</p>
-      <p>Preencha o formulário e garanta já o seu orçamento.</p>
+      <div class="info-item" style="text-align:center">
+        <div style="font-size:26px">🛠️</div>
+        <div style="font-size:13px;font-weight:700">Produtos de Qualidade</div>
+      </div>
+      <div class="info-item" style="text-align:center">
+        <div style="font-size:26px">⏱️</div>
+        <div style="font-size:13px;font-weight:700">Instalação no Prazo</div>
+      </div>
+
+      <!-- botão WhatsApp -->
+      <!-- Substitua telefone no href pelo seu número no formato 5511999999999 -->
+      <a class="cta-wa" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+quero+um+or%C3%A7amento" target="_blank">
+        <span>Quero fazer meu orçamento</span>
+        <span style="font-weight:800">💬</span>
+      </a>
     </div>
 
-    <form class="contact-form">
-      <label>Nome:</label>
-      <input type="text" placeholder="Seu nome">
-      <label>Telefone:</label>
-      <input type="text" placeholder="(11) 99999-9999">
-      <label>Cidade:</label>
-      <input type="text" placeholder="Sua cidade">
-      <label>Serviço:</label>
-      <input type="text" placeholder="Ex: Box, Corrimão, Guarda corpo">
-      <label>Mais informações:</label>
-      <textarea rows="3" placeholder="Descreva aqui..."></textarea>
-      <button class="btn-whatsapp">Quero fazer meu orçamento</button>
-    </form>
-  </section>
+    <!-- Galeria superior (2 colunas, 3 linhas visual) -->
+    <div class="gallery">
+      <img class="img" src="img1.jpg" alt="galeria 1">
+      <img class="img" src="img2.jpg" alt="galeria 2">
+      <img class="img" src="img3.jpg" alt="galeria 3">
+      <img class="img" src="img4.jpg" alt="galeria 4">
+      <img class="img" src="img5.jpg" alt="galeria 5">
+      <img class="img" src="img6.jpg" alt="galeria 6">
+    </div>
 
-  <footer>
-    <p>© 2025 L.A Vidros — Todos os direitos reservados.</p>
-  </footer>
+    <!-- Texto e formulário ao final (lado a lado em desktop) -->
+    <div class="lower">
+      <div class="left-col">
+        <!-- repetição das imagens para preencher visual, ajuste se quiser -->
+        <img class="img" src="img1.jpg" alt="">
+        <img class="img" src="img2.jpg" alt="">
+        <img class="img" src="img3.jpg" alt="">
+        <img class="img" src="img4.jpg" alt="">
+      </div>
 
-  <script src="script.js"></script>
+      <aside class="right-col">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1">
+            <h3>Precisando de vidraceiro em Suzano e região?</h3>
+            <p class="info-text">Serviço de qualidade com os melhores materiais do mercado. Preencha o formulário e
+              garanta já o seu orçamento.</p>
+          </div>
+        </div>
+
+        <form class="form" action="#"
+          onsubmit="event.preventDefault(); alert('Formulário simulado — aqui você integra ao backend');">
+          <input type="text" name="nome" placeholder="Nome" required>
+          <input type="text" name="telefone" placeholder="Telefone" required>
+          <input type="text" name="cidade" placeholder="Cidade" required>
+          <input type="text" name="servico" placeholder="Serviço (ex: Box, Corrimão)" required>
+          <textarea name="mensagem" placeholder="Mais informações"></textarea>
+          <button class="btn-submit" type="submit">
+            Quero fazer meu orçamento <span style="font-size:18px">💬</span>
+          </button>
+        </form>
+      </aside>
+    </div>
+
+    <footer style="text-align:center;padding:18px 0;border-top:1px solid rgba(0,0,0,0.04);color:var(--muted)">
+      © L.A Vidros - Exemplo de layout
+    </footer>
+  </div>
 </body>
+
 </html>

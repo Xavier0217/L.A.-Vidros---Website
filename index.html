@@ -1,83 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L.A Vidros — Vidros e Corrimões</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>L.A Vidros</title>
+
+  <!-- CONEXÃO COM O CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <div class="logo-area">
-      <div class="logo">
-        <span class="logo-border">L.A</span>
-        <span class="logo-text">VIDROS</span>
-      </div>
-      <h1>VIDROS E CORRIMÕES</h1>
-    </div>
-    <div class="hero">
-      <img src="hero.jpg" alt="Vidros e corrimões" class="hero-img">
+    <div class="logo">
+      <img src=assets/img/logo.jpeg alt="L.A Vidros">
     </div>
   </header>
 
-  <section class="features">
-    <div class="feature">
-      <img src="icon-truck.png" alt="">
+  <!-- Imagem Principal -->
+  <section class="hero">
+    <img src=assets/img/d.jpeg alt="Vidros e corrimões">
+  </section>
+
+  <!-- Faixa de informações -->
+  <section class="info-bar">
+
+    <div class="info-item">
+      <div class="icon">🚚</div>
       <p>Entrega Rápida</p>
     </div>
-    <div class="feature">
-      <img src="icon-check.png" alt="">
+
+    <div class="info-item">
+      <div class="icon">🛠️</div>
       <p>Produtos de Qualidade</p>
     </div>
-    <div class="feature">
-      <img src="icon-gear.png" alt="">
+
+    <div class="info-item">
+      <div class="icon">⏱️</div>
       <p>Instalação no Prazo</p>
     </div>
+
+    <a class="btn-whatsapp" href="#" target="_blank">
+      Quero fazer meu orçamento 💬
+    </a>
+
   </section>
 
-  <div class="cta">
-    <a href="#" class="btn-whatsapp">Quero fazer meu orçamento</a>
-  </div>
-
+  <!-- Galeria -->
   <section class="gallery">
-    <img src="img1.jpg" alt="">
-    <img src="img2.jpg" alt="">
-    <img src="img3.jpg" alt="">
-    <img src="img4.jpg" alt="">
-    <img src="img5.jpg" alt="">
-    <img src="img6.jpg" alt="">
+    <img src=assets/img/c.jpeg alt="20">
+    <img src=assets/img/g.jpeg alt="20">
+ 
+    <img src=assets/img/e.jpeg alt="20">
+ 
+    <img src=assets/img/b.jpeg alt="20">
+ 
+    <img src=assets/img/a.jpeg alt="20">
+    <img src=assets/img/f.jpeg alt="20">
+ 
   </section>
 
-  <section class="contact">
-    <div class="contact-info">
-      <div class="logo small">
-        <span class="logo-border">L.A</span>
-        <span class="logo-text">VIDROS</span>
-      </div>
-      <h2>VIDROS E CORRIMÕES</h2>
+  <!-- Área de texto + formulário -->
+  <section class="contact-area">
+
+    <div class="contact-left">
+      <h2>Precisando de vidraceiro em Suzano e região?</h2>
+      <p>Entre em contato e faça o seu orçamento.</p>
+
+      <h3>L.A VIDROS</h3>
+      <p>VIDROS E CORRIMÕES</p>
+
       <p>Serviço de qualidade com os melhores materiais do mercado.</p>
       <p>Preencha o formulário e garanta já o seu orçamento.</p>
     </div>
 
     <form class="contact-form">
       <label>Nome:</label>
-      <input type="text" placeholder="Seu nome">
+      <input type="text">
+
       <label>Telefone:</label>
-      <input type="text" placeholder="(11) 99999-9999">
+      <input type="text">
+
       <label>Cidade:</label>
-      <input type="text" placeholder="Sua cidade">
+      <input type="text">
+
       <label>Serviço:</label>
-      <input type="text" placeholder="Ex: Box, Corrimão, Guarda corpo">
+      <input type="text">
+
       <label>Mais informações:</label>
-      <textarea rows="3" placeholder="Descreva aqui..."></textarea>
-      <button class="btn-whatsapp">Quero fazer meu orçamento</button>
+      <textarea></textarea>
+
+      <button type="submit">Quero fazer meu orçamento 💬</button>
     </form>
+
   </section>
 
+  <!-- Rodapé -->
   <footer>
-    <p>© 2025 L.A Vidros — Todos os direitos reservados.</p>
+    <p>© L.A Vidros</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>

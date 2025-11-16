@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L.A Vidros - Login</title>
 
-<link rel="stylesheet" href="assets/css/login.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L.A Vidros - Login</title>
+
+  <link rel="stylesheet" href="assets/css/login.css">
 
 </head>
+
 <body>
 
-<div class="login-box">
-  <img src="assets/img/logo.png" alt="Logo">
+  <div class="login-box">
+    <img src="assets/img/logo.png" alt="Logo">
 
-  <form id="loginForm">
-    <label>Login:</label>
-    <input type="text" name="email" placeholder="Digite seu login" required>
+    <form id="loginForm">
+      <label>Usuário:</label>
+      <input type="text" name="usuario" placeholder="Digite seu login" required>
 
-    <label>Senha:</label>
-    <input type="password" name="senha" placeholder="Digite sua senha" required>
+      <label>Senha:</label>
+      <input type="password" name="senha" placeholder="Digite sua senha" required>
 
-    <button type="submit">Entrar</button>
-  </form>
-</div>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
 
-<script src="script.js"></script>
-<script>
-document.getElementById("loginForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  fazerLogin(e.target);
-});
-</script>
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      fazerLogin(e.target);
+    });
+  </script>
 
 </body>
+
 </html>

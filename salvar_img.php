@@ -1,32 +1,39 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario']) || $_SESSION['usuario'] !== 'admin') {
-    header("Location: login.html");
+    header("Location: login.php");
     exit();
 }
 
 function criarNomePadrao($tipo, $nomeOriginal) {
-    $extensao = pathinfo($nomeOriginal, PATHINFO_EXTENSION);
-    $timestamp = date('Ymd_His');
-    return "{$tipo}_{$timestamp}.{$extensao}";
+    $ext = pathinfo($nomeOriginal, PATHINFO_EXTENSION);
+    $time = date('Ymd_His');
+    return "{$tipo}_{$time}.{$ext}";
 }
 
-$pastas = [
-    'imagem_topo' => 'assets/img/',
-    'imagem_fundo' => 'assets/img/'
+// Campos aceitos
+$campos = [
+  "imagem_topo",
+  "galeria_1",
+  "galeria_2",
+  "galeria_3",
+  "galeria_4",
+  "galeria_5",
+  "galeria_6"
 ];
 
-foreach ($_FILES as $campo => $arquivo) {
-    if ($arquivo['error'] === UPLOAD_ERR_OK) {
-        $novoNome = criarNomePadrao($campo, $arquivo['name']);
-        $destino = $pastas[$campo] . $novoNome;
-        move_uploaded_file($arquivo['tmp_name'], $destino);
+foreach ($campos as $campo) {
+    if (isset($_FILES[$campo]) && $_FILES[$campo]['error'] === UPLOAD_ERR_OK) {
+        
+        $novoNome = criarNomePadrao($campo, $_FILES[$campo]['name']);
+        $destino = "assets/img/" . $novoNome;
 
-        // opcional: Salvar o novo caminho/arquivo em um arquivo de configuração ou banco de dados
+        move_uploaded_file($_FILES[$campo]['tmp_name'], $destino);
+
         file_put_contents("config_{$campo}.txt", $novoNome);
     }
 }
 
-header("Location: admin.php?sucesso=1");
+header("Location: admin.php");
 exit();
 ?>

@@ -1,17 +1,12 @@
 <?php
 session_start();
 
-// Se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $usuario = $_POST['usuario'] ?? '';
     $senha   = $_POST['senha'] ?? '';
 
-    // Login fixo
-    $usuarioAdmin = "admin";
-    $senhaAdmin   = "1234";
-
-    if ($usuario === $usuarioAdmin && $senha === $senhaAdmin) {
+    if ($usuario === "admin" && $senha === "1234") {
         $_SESSION['usuario'] = "admin";
         header("Location: admin.php");
         exit();
@@ -28,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>L.A Vidros - Login</title>
-
   <link rel="stylesheet" href="assets/css/login.css">
 </head>
 
@@ -43,10 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <form method="POST">
       <label>Usuário:</label>
-      <input type="text" name="usuario" placeholder="Digite seu login" required>
+      <input type="text" name="usuario" required>
 
       <label>Senha:</label>
-      <input type="password" name="senha" placeholder="Digite sua senha" required>
+      <input type="password" name="senha" required>
 
       <button type="submit">Entrar</button>
     </form>
@@ -54,3 +48,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 </body>
 </html>
+      

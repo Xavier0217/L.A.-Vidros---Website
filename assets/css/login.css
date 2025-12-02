@@ -1,65 +1,76 @@
+/* Remove margem padrão e centraliza tudo na tela */
 body {
   margin: 0;
-  height: 100vh;
+  height: 100vh;                           /* Ocupa a tela toda */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to bottom, #00a7b5, #006e77);
+  justify-content: center;                 /* Centraliza no meio */
+  align-items: center;                     /* Centraliza verticalmente */
+  background: linear-gradient(to bottom,    /* Fundo com degradê */
+    #00a7b5, 
+    #006e77
+  );
   font-family: Arial, sans-serif;
 }
 
+/* Caixa principal do login */
 .login-box {
-  text-align: center;
+  text-align: center;                      /* Centraliza conteúdo interno */
 }
 
+/* Logo / imagem do topo */
 .login-box img {
   width: 180px;
   height: 180px;
-  object-fit: contain;
+  object-fit: contain;                     /* Ajusta sem cortar */
   border-radius: 5px;
   border: 2px solid #e1e1e1;
   margin-bottom: 20px;
-  background: white;
+  background: white;                       /* Fundo branco */
 }
 
+/* Área do formulário */
 form {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: column;                  /* Inputs um abaixo do outro */
+  align-items: flex-start;                 /* Alinha textos à esquerda */
   width: 280px;
   margin: 0 auto;
 }
 
+/* Texto acima dos inputs */
 label {
   margin-left: 5px;
   margin-bottom: 4px;
   font-weight: bold;
-  color: #fff;
+  color: #fff;                             /* Labels brancas */
 }
 
+/* Campos de texto */
 input {
-  width: 100%;
+  width: 92%;                              /* Largura controlada */
   padding: 10px;
   margin-bottom: 15px;
-  border-radius: 20px;
+  border-radius: 20px;                     /* Borda arredondada */
   border: none;
   outline: none;
   font-size: 14px;
 }
 
+/* Botão de enviar */
 button {
   width: 100%;
   padding: 12px;
   border-radius: 20px;
   border: none;
   cursor: pointer;
-  background: #000;
-  color: #fff;
+  background: #000;                        /* Fundo preto */
+  color: #fff;                             /* Texto branco */
   font-weight: bold;
   font-size: 15px;
-  transition: 0.2s;
+  transition: 0.2s;                        /* Animação no hover */
 }
 
+/* Cor do botão quando o mouse passa por cima */
 button:hover {
   background: #222;
 }

@@ -1,162 +1,299 @@
-/* ===== CONFIGURAÇÃO GERAL ===== */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* ===== VARIÁVEIS ===== */
+/* Guarda cores, tamanhos e valores para usar no site todo */
+:root{
+  --bg: #f5f7f8;
+  --white: #ffffff;
+  --muted: #6b6b6b;
+  --accent-1: #0fa69c;       /* Cor principal do tema */
+  --accent-2: #2bc9b8;       /* Cor secundária */
+  --whatsapp: #25d366;       /* Verde do WhatsApp */
+  --card-shadow: 0 10px 30px rgba(11,11,11,0.06);  /* Sombra padrão */
+  --radius: 10px;            /* Arredondamento padrão */
+  --maxw: 1100px;            /* Largura máxima da página */
+  --gap: 18px;               /* Espaçamento padrão */
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
+/* ===== RESET ===== */
+/* Remove margens e espaçamentos padrão do navegador */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+/* ===== ESTILOS GERAIS ===== */
+body{
+  font-family: "Inter", Arial, Helvetica, sans-serif;  /* Fonte */
+  background: var(--bg);                              /* Fundo claro */
+  color:#222;
+  -webkit-font-smoothing: antialiased;                /* Texto mais suave */
+  line-height:1.45;
 }
 
 /* ===== HEADER ===== */
-
-header {
-    text-align: center;
-    padding: 20px 0;
+header{
+  text-align:center;
+  padding:2px 0;
+}
+.logo img{
+  width: clamp(90px, 27vw, 138px);  /* Tamanho da logo ajusta conforme a tela */
 }
 
-.logo img {
-    width: 90px;
+/* ===== HERO (imagem grande do topo) ===== */
+.hero{
+  position:relative;               /* Permite colocar itens por cima */
+  width:100%;
+  max-width:var(--maxw);
+  margin:5px auto;
+  border-radius:var(--radius);
+  overflow:hidden;                 /* Corta o excesso da imagem */
+  box-shadow:var(--card-shadow);
+}
+.hero img{
+  width:100%;
+  height: clamp(180px, 35vw, 420px);  /* Altura ajustável conforme a tela */
+  object-fit:cover;
+  transition: transform .6s ease;    /* Suaviza o zoom */
+}
+.hero:hover img{
+  transform: scale(1.03);           /* Pequeno zoom ao passar o mouse */
+}
+.hero::after{
+  content:"";                       /* Camada escura leve por cima */
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(10,10,10,0.25), rgba(10,10,10,0.06));
+  pointer-events:none;
 }
 
-/* ===== HERO ===== */
-
-.hero img {
-    width: 100%;
-    height: auto;
+/* Botão por cima da imagem */
+.hero-cta{
+  position:absolute;
+  right: clamp(10px, 3vw, 22px);
+  bottom: clamp(10px, 3vw, 22px);
+}
+.hero-cta .btn-whatsapp{
+  display:inline-block;
+  background: linear-gradient(90deg,var(--accent-1),var(--accent-2));
+  color:var(--white);
+  padding:12px 18px;
+  border-radius:10px;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow: 0 10px 28px rgba(43,201,184,0.14);
+  transition: transform .12s ease;
+}
+.hero-cta .btn-whatsapp:hover{
+  transform: translateY(-4px);       /* Levanta um pouquinho */
 }
 
 /* ===== INFO BAR ===== */
-
-.info-bar {
-    background: linear-gradient(90deg, #00a39a, #07c6b6);
-    padding: 20px;
-    color: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    text-align: center;
+/* Barra cheia de informações rápidas (telefone, horário, etc.) */
+.info-bar{
+  max-width:var(--maxw);
+  margin:16px auto;
+  background: linear-gradient(45deg, rgba(15,166,153,0.858), rgba(43,201,185,0.321));
+  padding: clamp(10px, 3vw, 18px);
+  color:#083;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  border-radius:12px;
+  gap:12px;
+  box-shadow:0 6px 20px rgba(10,10,10,0.03);
 }
 
-.info-item {
-    margin: 10px;
+.info-left{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
 }
 
-.info-item .icon {
-    font-size: 30px;
-    margin-bottom: 5px;
+/* Cada bloco dentro da info bar */
+.info-item{
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  background: rgb(176,246,255);
+  padding: 8px 12px;
+  border-radius:10px;
+  gap:10px;
+  box-shadow:0 6px 18px rgba(10,10,10,0.03);
 }
 
-.btn-whatsapp {
-    background: #25d366;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    text-decoration: none;
+/* Ícone dentro de cada item */
+.info-item .icon{
+  font-size:18px;
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  background: linear-gradient(180deg,#fff,#f3f6f6);
+}
+
+/* ===== BOTÃO SUPERIOR (WhatsApp) ===== */
+.btn-whatsapp{
+  background: linear-gradient(90deg, rgb(18,222,151), rgb(43,201,106));
+  color:var(--white);
+  padding:10px 14px;
+  border-radius:10px;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 8px 22px rgba(15,166,154,0.12);
+  cursor:pointer;
 }
 
 /* ===== GALERIA ===== */
-
-.gallery {
-    max-width: 900px;
-    margin: 40px auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
+.gallery{
+  max-width:var(--maxw);
+  margin: 30px auto;
+  padding: 0 12px;
+  display:grid;
+  gap:16px;
 }
-
-.gallery img {
-    width: 100%;
-    border-radius: 4px;
-    border: 6px solid #fff;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+.gallery img{
+  width:100%;
+  height: clamp(140px, 22vw, 200px); /* Altura ajustável */
+  object-fit:cover;
+  border-radius:10px;
+  border:6px solid var(--white);
+  box-shadow:0 10px 30px rgba(8,8,8,0.06);
+  transition: transform .35s ease, box-shadow .25s ease;
+}
+.gallery img:hover{
+  transform: translateY(-6px) scale(1.02);   /* Leve zoom ao passar o mouse */
+  box-shadow:0 22px 46px rgba(0,0,0,0.12);
 }
 
 /* ===== ÁREA DE CONTATO ===== */
-
-.contact-area {
-    max-width: 900px;
-    margin: 40px auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    padding: 0 15px;
+.contact-area{
+  max-width:var(--maxw);
+  margin:30px auto 60px;
+  display:grid;
+  grid-template-columns: 1fr 420px;  /* Texto à esquerda, formulário à direita */
+  gap:28px;
+  padding:0 12px;
+  align-items:start;
 }
 
-.contact-left h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
+.contact-left{
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(250,250,250,0.9));
+  padding:18px;
+  border-radius:12px;
+  box-shadow:var(--card-shadow);
 }
 
-.contact-left h3 {
-    margin-top: 20px;
-    font-size: 22px;
+.contact-left h2{
+  font-size:20px;
+  margin-bottom:8px;
+}
+.contact-left p{
+  color:var(--muted);
+  margin:8px 0;
 }
 
-.contact-left p {
-    margin: 8px 0;
+/* Caixa do formulário */
+.contact-form{
+  background:var(--white);
+  padding:16px;
+  border-radius:12px;
+  box-shadow:var(--card-shadow);
+  border:1px solid rgba(12,12,12,0.03);
 }
 
-/* ===== FORMULÁRIO ===== */
-
-.contact-form label {
-    font-weight: bold;
-    display: block;
-    margin: 10px 0 5px;
+.contact-form label{
+  font-weight:600;
+  display:block;
+  margin:10px 0 6px;
+  font-size:13px;
 }
 
 .contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
+.contact-form textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0.08);
+  font-size:14px;
+  background:#fbfdff;
+  transition: box-shadow .12s, border-color .12s, transform .06s;
 }
 
-.contact-form textarea {
-    height: 100px;
+.contact-form textarea{
+  min-height:100px;
+  resize:vertical;
 }
 
-.contact-form button {
-    background: #25d366;
-    border: none;
-    padding: 12px;
-    width: 100%;
-    margin-top: 15px;
-    font-weight: bold;
-    color: #fff;
-    border-radius: 6px;
-    cursor: pointer;
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline:none;
+  border-color: rgba(15,166,154,0.9);
+  box-shadow:0 8px 22px rgba(15,166,154,0.06);
+  transform: translateY(-1px);
 }
 
-/* ===== RODAPÉ ===== */
-
-footer {
-    text-align: center;
-    padding: 20px 0;
-    color: #555;
+.contact-form button{
+  width:100%;
+  padding:12px;
+  background: linear-gradient(90deg, rgb(18,222,151), rgb(43,201,106));
+  color:var(--white);
+  border:none;
+  border-radius:10px;
+  font-weight:700;
+  margin-top:12px;
+  cursor:pointer;
 }
 
-/* ===== RESPONSIVO ===== */
-
-@media (max-width: 780px) {
-    .contact-area {
-        grid-template-columns: 1fr;
-    }
+/* ===== FOOTER ===== */
+footer{
+  max-width:var(--maxw);
+  margin:16px auto;
+  background: linear-gradient(45deg, rgba(15,166,153,0.858), rgba(43,201,185,0.321));
+  padding:10px 18px;
+  color:rgb(29,29,29);
+  text-align:center;
+  border-radius:12px;
 }
 
-@media (max-width: 600px) {
-    .gallery {
-        grid-template-columns: 1fr;
-    }
+/* ===== RESPONSIVIDADE ===== */
+/* Ajusta a página em telas menores */
+@media (max-width:1000px){
+  .contact-area{
+    grid-template-columns:1fr 360px;
+  }
+}
 
-    .info-bar {
-        flex-direction: column;
-        gap: 15px;
-    }
+@media (max-width:780px){
+  .hero img{
+    height: clamp(160px, 40vw, 220px);
+  }
+  .info-bar{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .contact-area{
+    grid-template-columns:1fr;  /* Forma 1 coluna no celular */
+  }
+}
+
+@media (max-width:480px){
+  .contact-area{ padding-bottom:24px; }
+}
+
+/* 3 colunas no PC */
+@media (min-width: 900px){
+  .gallery{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 2 colunas no celular */
+@media (max-width: 899px){
+  .gallery{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

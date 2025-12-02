@@ -1,7 +1,9 @@
 <?php
-session_start();
-session_unset();
-session_destroy();
-header("Location: login.php");
-exit();
+session_start(); // inicia a sessão para poder mexer nela
+
+session_unset(); // limpa os dados da sessão
+session_destroy(); // encerra a sessão completamente
+
+header("Location: login.php"); // manda o usuário de volta para o login
+exit(); // garante que o código pare aqui
 ?>
